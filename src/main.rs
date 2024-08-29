@@ -48,7 +48,7 @@ fn main() {
     for i in (0..10).rev() {
         println!("{i}!"); // 10 9 .. 0
     }
-
+    //一个内存（所有权）只绑定一个变量
     {
         let s = "ownership";
     }
@@ -61,6 +61,9 @@ fn main() {
         move1(sss);// sss被move到函数里了，sss将无效
     }
     // s不存在
+    // reference引用
+    let a = String::from("Hello Word!");
+    let l = len(&a);// 传入的是引用，不改变所有权
 }
 
 fn result(_x: i32) -> i32 {
@@ -69,4 +72,8 @@ fn result(_x: i32) -> i32 {
 
 fn move1(str: String) {
     println!("{str}")
+}
+
+fn len(s: &String) -> usize {// &String s 就是引用 a
+    s.len()
 }
