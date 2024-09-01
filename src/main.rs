@@ -1,5 +1,14 @@
 use rand::Rng;
-
+#[derive(Debug)]
+struct Rectangle{
+    width:u32,
+    height:u32,
+}
+impl Rectangle{
+    fn area(&self)->u32{
+        self.width*self.height
+    }
+}
 fn main() {
     println!("Hello, world!");
     //
@@ -64,6 +73,44 @@ fn main() {
     // reference引用
     let a = String::from("Hello Word!");
     let l = len(&a);// 传入的是引用，不改变所有权
+    let mut mua = String::from("Hello");
+    let new_str = add_length(&mut mua);// 传入引用，可修改
+    // slice
+    let word = &a[6..];// word
+    let hello = &a[..5];// hello
+    let hello_word = &a[..];
+    let space = &a[5..6];// ' '
+    let arr = [1,2,3];
+    let two=&arr[1..2];// 2
+    // 结构体
+    struct User {
+        active: bool,
+        username: String,
+        email: String,
+        sign_in_count: u64,
+    }
+    let mut user1 = User{
+        active:false,
+        username:String::from("anqihang"),
+        email:String::from("1711404616@qq.com"),
+        sign_in_count:1
+    };
+    user1.email= String::from("anqihang@qq.com");
+    let user2 = User{
+        active:true,
+        ..user1
+    };
+    // 元组结构体
+    struct Color(i32, i32, i32);
+
+    let rectangle = Rectangle{
+        width:100,
+        height:20
+    };
+    area(&rectangle);
+    println!("{:?}",rectangle);
+    dbg!(&rectangle);
+    rectangle.area();
 }
 
 fn result(_x: i32) -> i32 {
@@ -76,4 +123,10 @@ fn move1(str: String) {
 
 fn len(s: &String) -> usize {// &String s 就是引用 a
     s.len()
+}
+fn add_length(str:&mut String){
+    str.push_str("mut")
+}
+fn area(rectangle:&Rectangle)->u32{
+    rectangle.width*rectangle.height
 }
