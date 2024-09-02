@@ -1,14 +1,17 @@
 use rand::Rng;
+
 #[derive(Debug)]
-struct Rectangle{
-    width:u32,
-    height:u32,
+struct Rectangle {
+    width: u32,
+    height: u32,
 }
-impl Rectangle{
-    fn area(&self)->u32{
-        self.width*self.height
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
     }
 }
+
 fn main() {
     println!("Hello, world!");
     //
@@ -80,8 +83,8 @@ fn main() {
     let hello = &a[..5];// hello
     let hello_word = &a[..];
     let space = &a[5..6];// ' '
-    let arr = [1,2,3];
-    let two=&arr[1..2];// 2
+    let arr = [1, 2, 3];
+    let two = &arr[1..2];// 2
     // 结构体
     struct User {
         active: bool,
@@ -89,28 +92,66 @@ fn main() {
         email: String,
         sign_in_count: u64,
     }
-    let mut user1 = User{
-        active:false,
-        username:String::from("anqihang"),
-        email:String::from("1711404616@qq.com"),
-        sign_in_count:1
+    let mut user1 = User {
+        active: false,
+        username: String::from("anqihang"),
+        email: String::from("1711404616@qq.com"),
+        sign_in_count: 1,
     };
-    user1.email= String::from("anqihang@qq.com");
-    let user2 = User{
-        active:true,
+    user1.email = String::from("anqihang@qq.com");
+    let user2 = User {
+        active: true,
         ..user1
     };
     // 元组结构体
     struct Color(i32, i32, i32);
 
-    let rectangle = Rectangle{
-        width:100,
-        height:20
+    let rectangle = Rectangle {
+        width: 100,
+        height: 20,
     };
     area(&rectangle);
-    println!("{:?}",rectangle);
+    println!("{:?}", rectangle);
     dbg!(&rectangle);
     rectangle.area();
+    // 6
+    enum IpAddrKind {
+        V4(u8, u8, u8, u8),
+        V6(String),
+    }
+    let four = IpAddrKind::V6(String::from("127.0.0.1"));
+    let home = IpAddrKind::V4(127, 0, 0, 1);
+    enum Message {
+        Quit,
+        Move { x: u32, y: u32 },
+        Write(String),
+    }
+    impl Message {
+        fn call(&self) {
+            println!("{self}")
+        }
+    }
+    let null: Option<u32> = None;// null 值
+    let may_null: Option<i8> = Some(8);
+    enum Coin {
+        Ten,
+        Five,
+        Print(String),
+    }
+    fn value_in_coin(coin: Coin) -> u8 {
+        match coin {
+            Coin::Ten => 10,
+            Coin::Five => {
+                5
+            }
+            other => {
+                println!("{other}");
+                8
+            }// _=>()
+        }
+    }
+    let five = Coin::Five;
+    if let Coin::Five = five {} else {}
 }
 
 fn result(_x: i32) -> i32 {
@@ -124,9 +165,11 @@ fn move1(str: String) {
 fn len(s: &String) -> usize {// &String s 就是引用 a
     s.len()
 }
-fn add_length(str:&mut String){
+
+fn add_length(str: &mut String) {
     str.push_str("mut")
 }
-fn area(rectangle:&Rectangle)->u32{
-    rectangle.width*rectangle.height
+
+fn area(rectangle: &Rectangle) -> u32 {
+    rectangle.width * rectangle.height
 }
