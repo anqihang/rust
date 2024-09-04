@@ -1,4 +1,6 @@
+mod util;
 use rand::Rng;
+
 
 #[derive(Debug)]
 struct Rectangle {
@@ -152,6 +154,9 @@ fn main() {
     }
     let five = Coin::Five;
     if let Coin::Five = five {} else {}
+
+    //
+    let count = util::add::add(1,2);
 }
 
 fn result(_x: i32) -> i32 {
