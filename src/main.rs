@@ -78,6 +78,7 @@ fn main() {
     // s不存在
     // reference引用
     let a = String::from("Hello Word!");
+    let a = "Hello Word!".to_string();// 相同 String::from
     let l = len(&a);// 传入的是引用，不改变所有权
     let mut mua = String::from("Hello");
     let new_str = add_length(&mut mua);// 传入引用，可修改
