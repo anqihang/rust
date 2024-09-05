@@ -1,4 +1,5 @@
 mod util;
+
 use rand::Rng;
 
 
@@ -156,7 +157,17 @@ fn main() {
     if let Coin::Five = five {} else {}
 
     //
-    let count = util::add::add(1,2);
+    let count = util::math::add(1, 2);
+    //vector
+    let mut v: Vec<i32> = Vec::new();
+    v.push(1);
+    v.push(2);
+    let mut v = vec![1,2,3];
+    let third: &i32 = &v[2];// 3
+    let second:Option<&i32> = v.get(1);// 2
+    for i in &mut v {
+        *i += 4; // *解析i
+    }
 }
 
 fn result(_x: i32) -> i32 {
