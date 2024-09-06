@@ -1,5 +1,8 @@
 mod util;
 
+use std::collections::HashMap;
+use std::fs::File;
+use std::io::ErrorKind;
 use rand::Rng;
 
 
@@ -163,12 +166,38 @@ fn main() {
     let mut v: Vec<i32> = Vec::new();
     v.push(1);
     v.push(2);
-    let mut v = vec![1,2,3];
+    let mut v = vec![1, 2, 3];
     let third: &i32 = &v[2];// 3
-    let second:Option<&i32> = v.get(1);// 2
+    let second: Option<&i32> = v.get(1);// 2
     for i in &mut v {
         *i += 4; // *解析i
     }
+    // map
+    let mut scores = HashMap::new();
+    enum Key {
+        String,
+        Boolean,
+        I32,
+    }
+    scores.insert(Key::String, 1);
+
+    // 错误
+    // panic!("终止！");
+    let f = File::open("hello.txt");
+    let f = match f {
+        Ok(file) => file,
+        Err(error) => match error.kind() {
+            ErrorKind::NotFound => match File::create("hello.txt") {
+                Ok(fc) => fc,
+                Err(error) => panic!("{:#?}", error)
+            },
+            other => {
+                panic!("{:#?}", other);
+            }
+        }
+    };
+    let un_wrap = File::open("hello.txt").unwrap();
+    let expect = File::open("hello.txt").expect("hello.txt don't open successfully")
 }
 
 fn result(_x: i32) -> i32 {
