@@ -26,5 +26,5 @@ fn get_str(str:&str)->usize{
 }
 fn change_str(str:&mut String){
 	// str 可修改，可变
-	str.push_str(" AX");
+	str.push_str("AX");
 }
