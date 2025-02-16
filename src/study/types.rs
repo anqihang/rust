@@ -31,5 +31,5 @@ fn main(){
     let arr:[i32;5] = [1, 2, 3, 4, 5];// 长度固定，类型相同
     let arr_init = [0;5];// 数组初始化 [0,0,0,0,0]
     let arr0 = arr[0];// 访问数组第一个元素
-    println!("{}",arr[5]);//! error 数组越界
+    // println!("{}",arr[5]);//! error 数组越界
 }

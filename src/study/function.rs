@@ -7,7 +7,7 @@ pub fn main(){
     let z = five();
 }
 fn init(age:i32,name:char){
-    println!("Hello, world!",age,name);
+    println!("Hello, world!,{},{}",age,name);
 }
 fn five()->i32{
     5
