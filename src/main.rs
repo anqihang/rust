@@ -8,6 +8,6 @@ use study::trait1;
 fn main(){
     study::variable::main();
     // control::main();
-    Control::main();
+    // Control::main();
     trait1::main();
 }
