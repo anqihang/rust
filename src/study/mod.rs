@@ -11,3 +11,4 @@ pub mod pack;
 //从pack.rs中加载模块pack
 pub mod control;
 pub mod trait1;
+pub mod test;
