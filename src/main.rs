@@ -5,11 +5,11 @@
 mod study;
 use study::control as Control;// as 重命名
 use study::trait1;
-use study::test;
+use study::test::test::tests;
 fn main(){
-    study::variable::main();
+    // study::variable::main();
     // control::main();
     // Control::main();
-    trait1::main();
-    test::test::main();
+    // trait1::main();
+    tests::it_works();
 }
