@@ -12,6 +12,3 @@ opt-level = 0   # 编译时的代码优化程度
 
 [profile.release]
 panic = 'abort'
-
-[workspace]
-members = ["adder"]
