@@ -1,11 +1,10 @@
 use std::mem::drop;
-use std::rc::Rc;
 pub mod pointer{
     pub fn main(){
         let b = Box::new(5);// 在堆上分配一个整数
         println!("b = {}", b);
 		// let list = Cons(5,Cons(6,Cons(7,Nil)));// 无法确定大小
-		let list = Box::new(Cons(8,Box::new(Cons(9,Box::new(,Nil)))));
+		let list = Cons(8,Box::new(Cons(9,Box::new(10,Nil))));
 
         //
         let x = 5;
@@ -18,26 +17,11 @@ pub mod pointer{
         const D
         drop(d);// 手动清除数据
         println!("b = {}", b);
-
-    }
-    pub fn rc(){
-         // 多引用指针，reference count Rc, 引用计数
-        let list = Rc::new(Cons(7,Rc::new(Cons(8,Rc::new(Nil)))));
-
-        let a = Cons(6,Rc::clone(&list));// 只是增加引用计数，不会深拷贝数据
-        let c = Cons(5,Rc::clone(&list));
-
     }
 }
-
 enum List{
 	Cons(i32,List),
 	Nil,
-}
-
-enum List1{
-    Cons(i32,Rc<List>),
-    Nil,
 }
 
 import std::ops::Deref;
