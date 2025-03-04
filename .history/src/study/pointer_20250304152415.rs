@@ -47,17 +47,10 @@ pub mod pointer{
         struct Node{
             value:i32,
             children:RefCell<Vec<Rc<Node>>>,
-            parent:RefCell<Week<Node>>
+            parent:RefCell<>
         }
         let leaf = Rc::new(Node{value:3,children:RefCell::new(vec![])});
         let branch = Rc::new(Node{value:5,children:RefCell::new(vec![Rc::clone(&left)])});
-
-        {
-        //  子级的 parent 是 强引用，branch  的 children 是 弱引用。所以当 branch 被清理时，其子级也会被清理 ，leaf 被清理时，其 parent 不会被清理。
-            let leaf = Rc::new(Node{value:5,children:RefCell::new(vec![]),parent:RefCell::new(Week::new())});
-            let branch = Rc::new(Node{value:5,children:RefCell::new(vec![Rc::clone(&leaf)]),parent:RefCell::new(Week::new())});
-            *leaf.parent.borrow_mut()  = Rc::downgrade(&branch);
-        }
     }
 }
 
