@@ -3,13 +3,15 @@
  * @Date: 2025-01-29 15:18:24
  */
 mod study;
-use study::control as Control;// as 重命名
-use study::trait1;
-use study::test::test::tests;
+use study::concurrent;
+// use study::control as Control;// as 重命名
+// use study::trait1;
+// use study::test::test::tests;
 fn main(){
     // study::variable::main();
     // control::main();
     // Control::main();
     // trait1::main();
-    tests::it_works();
+    // tests::it_works();
+    concurrent::main();
 }
