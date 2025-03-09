@@ -13,5 +13,5 @@ fn main(){
     // Control::main();
     // trait1::main();
     // tests::it_works();
-    concurrent::main();
+    concurrent::concurrent::channel();
 }

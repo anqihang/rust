@@ -81,12 +81,12 @@ impl<T> Cacher<T>
         }
     }
 }
-fn main() {
-    let x = 4;
-
-    let equal_to_x = move |z| z == x;// move会将x的所有权移动到闭包中
-
-    let y = 4;
-
-    assert!(equal_to_x(y));
-}
+// fn main() {
+//     let x = 4;
+//
+//     let equal_to_x = move |z| z == x;// move会将x的所有权移动到闭包中
+//
+//     let y = 4;
+//
+//     assert!(equal_to_x(y));
+// }
